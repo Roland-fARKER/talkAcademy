@@ -1,0 +1,57 @@
+<p>cursos works!</p>
+<div class="content">
+    <p-toast />
+    <p-table [value]="cursos" [(selection)]="selectedCurso" [paginator]="true" [rows]="7"
+        currentPageReportTemplate="Mostrando de {first} a {last} de {totalRecords} entidades"
+        [showCurrentPageReport]="true">
+        <ng-template pTemplate="header">
+            <tr>
+                <th>Nombre</th>
+                <th>Nivel</th>
+                <th>Precio</th>
+                <th>Acciones</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-curso>
+            <tr>
+                <td>{{ curso.nombre }}</td>
+                <td>{{ curso.nivel }}</td>
+                <td>$ {{ curso.precio }}</td>
+                <td>
+                    <p-button type="button" icon="pi pi-pencil" severity="success"
+                        (click)="mostrarDialogEditar(curso)"></p-button>
+                    <p-button type="button" icon="pi pi-trash" severity="danger"
+                        (click)="mostrarDialogEliminar(curso)"></p-button>
+                </td>
+            </tr>
+        </ng-template>
+    </p-table>
+
+    <!-- Agregar nuevo curso -->
+    <button pButton type="button" label="Agregar Curso" icon="pi pi-plus" (click)="mostrarDialogAgregar()"></button>
+
+    <!-- Cuadro de diálogo para agregar/editar curso -->
+    <p-dialog header="Agregar/Editar Curso" [(visible)]="displayDialog" [responsive]="true">
+        <label for="nivel">Nivel</label>
+        <input id="nivel" [(ngModel)]="curso.nivel" placeholder="Nivel" />
+
+        <label for="nombre">Nombre</label>
+        <input id="nombre" [(ngModel)]="curso.nombre" placeholder="Nombre" />
+
+        <label for="precio">Precio</label>
+        <input id="precio" [(ngModel)]="curso.precio" placeholder="Precio" />
+
+        <!-- Botones del cuadro de diálogo -->
+        <button pButton type="button" label="Guardar" icon="pi pi-check" (click)="verificarid()"></button>
+        <button pButton type="button" label="Cancelar" icon="pi pi-times" (click)="cancelarEdicion()"></button>
+    </p-dialog>
+
+    <!-- Cuadro de confirmación para eliminar -->
+    <p-confirmDialog header="Confirmar Eliminación" icon="pi pi-exclamation-triangle">
+        <p-footer>
+            <button pButton type="button" label="Sí" icon="pi pi-check"
+                (click)="confirmarEliminarCurso(selectedCurso)"></button>
+            <button pButton type="button" label="No" icon="pi pi-times" (click)="cancelarEliminarCurso()"></button>
+        </p-footer>
+    </p-confirmDialog>
+</div>

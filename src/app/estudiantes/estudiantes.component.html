@@ -1,0 +1,71 @@
+<div class="content">
+    <p-toast></p-toast>
+    <p-table [value]="estudiantes" [(selection)]="selectedEstudiante" [paginator]="true" [rows]="7"
+        currentPageReportTemplate="Mostrando de {first} a {last} de {totalRecords} entidades" [showCurrentPageReport]="true" >
+        <ng-template pTemplate="header">
+            <tr>
+                <th>Nombre</th>
+                <th>Apellidos</th>
+                <th>Curso</th>
+                <th>Mensualidad</th>
+                <th>Acciones</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-estudiante>
+            <tr>
+                <td>{{ estudiante.nombres }}</td>
+                <td>{{ estudiante.apellidos }}</td>
+                <td>{{ estudiante.curso}}</td>
+                <td><p-tag icon="pi pi-user" severity="{{ estudiante.estado ? 'success':'danger' }}"
+                        value="{{ estudiante.estado ? 'Saldada':'Pendiente' }}"></p-tag></td>
+                <td>
+                    <p-button type="button" icon="pi pi-pencil" severity="success"
+                        (click)="mostrarDialogEditar(estudiante)"></p-button>
+                    <p-button type="button" icon="pi pi-trash" severity="danger"
+                        (click)="mostrarDialogEliminar(estudiante)"></p-button>
+                </td>
+            </tr>
+        </ng-template>
+    </p-table>
+
+    <!-- Agregar nuevo estudiante -->
+    <button pButton type="button" label="Agregar Estudiante" icon="pi pi-plus"
+        (click)="mostrarDialogAgregar()"></button>
+
+    <p-dialog header="Agregar/Editar Estudiante" [(visible)]="displayDialog" [responsive]="true">
+
+        <div class="p-inputgroup">
+            <span class="p-inputgroup-addon">
+                <i class="pi pi-user"></i>
+            </span>
+            <input pInputText placeholder="Nombres" id="nombres" [(ngModel)]="estudiante.nombres" />
+        </div>
+
+        <div class="p-inputgroup">
+            <span class="p-inputgroup-addon">
+                <i class="pi pi-user"></i>
+            </span>
+            <input pInputText placeholder="Apellidos" id="apellidos" [(ngModel)]="estudiante.apellidos" />
+        </div>
+
+        <label for="curso">Curso</label>
+        <input id="curso" [(ngModel)]="estudiante.curso" placeholder="Curso" />
+
+        <label for="estado">Ha cancelado?</label>
+        <p-inputSwitch id="estado" [(ngModel)]="estudiante.estado" binary="true"></p-inputSwitch>
+
+        
+
+        <!-- Botones del cuadro de diálogo -->
+        <button pButton type="button" label="Guardar" icon="pi pi-check" (click)="guardarEstudiante()"></button>
+        <button pButton type="button" label="Cancelar" icon="pi pi-times" (click)="cancelarEdicion()"></button>
+    </p-dialog>
+    <!-- Cuadro de confirmación para eliminar -->
+    <p-confirmDialog header="Confirmar Eliminación" icon="pi pi-exclamation-triangle">
+        <p-footer>
+            <button pButton type="button" label="Sí" icon="pi pi-check"
+                (click)="confirmarEliminarEstudiante(selectedEstudiante)"></button>
+            <button pButton type="button" label="No" icon="pi pi-times" (click)="cancelarEliminarEstudiante()"></button>
+        </p-footer>
+    </p-confirmDialog>
+</div>
