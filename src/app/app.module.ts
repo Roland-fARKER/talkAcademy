@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -25,8 +26,10 @@ import { DropdownModule } from 'primeng/dropdown';
 
 import { CursosComponent } from './cursos/cursos.component';
 import { MatriculasComponent } from './matriculas/matriculas.component';
+import { LoginComponent } from './login/login.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 @NgModule({
-  declarations: [AppComponent, EstudiantesComponent, CursosComponent, MatriculasComponent],
+  declarations: [AppComponent, EstudiantesComponent, CursosComponent, MatriculasComponent, LoginComponent, DashboardComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -43,7 +46,8 @@ import { MatriculasComponent } from './matriculas/matriculas.component';
     InputSwitchModule,
     TagModule,
     DialogModule,
-    DropdownModule
+    DropdownModule,
+    ReactiveFormsModule
   ],
   providers: [ EstudiantesService, CursosService, MatriculaService ],
   bootstrap: [AppComponent],

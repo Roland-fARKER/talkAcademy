@@ -1,0 +1,34 @@
+<div class="container">
+    <nav class="side-menu">
+        <!-- <div class="bann">
+        <li><a routerLink="/Home"><i class="pi pi-home" style="font-size: 1.5rem"></i> volver al inicio</a></li>
+      </div> -->
+        <div>
+            <img src="../../assets/logo.jpg" class="logo" />
+            <h4>User Name</h4>
+        </div>
+
+        <ul>
+            <li>
+                <a routerLink="/Dashboard/Estudiantes" routerLinkActive="active">
+                    <i class="pi pi-user" style="font-size: 1.5rem"></i>
+                    Estudiantes
+                </a>
+            </li>
+            <li>
+                <a routerLink="/Dashboard/Cursos" routerLinkActive="active">
+                    <i class="pi pi-book" style="font-size: 1.5rem"></i>
+                    Cursos
+                </a>
+            </li>
+            <li><a routerLink="/Dashboard/Matriculas" routerLinkActive="active" ><i class="pi pi-pencil" style="font-size: 1.5rem"></i> Nueva
+                    matricula</a></li>
+
+            <li><a href="#"><i class="pi pi-sign-out" style="font-size: 1.5rem"></i> cerrar sesión</a></li>
+        </ul>
+    </nav>
+    <main class="content">
+        <!-- Contenido principal de la página -->
+        <router-outlet />
+    </main>
+</div>

@@ -1,0 +1,25 @@
+<div class="cont1">
+    <p-toast/>
+    <div class="cont2">
+
+    </div>
+    <div class="cont3">
+        <img src="../../assets/logo.jpg" alt="logo">
+        <h2>Bienvenido de nuevo</h2>
+        <form>
+            <div class="p-inputgroup">
+                <span class="p-inputgroup-addon">
+                    <i class="pi pi-at"></i>
+                </span>
+                <input pInputText placeholder="Correo electronico" id="email" name="email" [(ngModel)]="email" />
+            </div>
+            <div class="p-inputgroup">
+                <span class="p-inputgroup-addon">
+                    <i class="pi pi-key"></i>
+                </span>
+                <input pInputText placeholder="Contraseña" id="password" name="password" [(ngModel)]="password" />
+            </div>
+            <button pButton pRipple label="Iniciar sesión" (click)="login()" class="p-button-success"></button>
+        </form>
+    </div>
+</div>
