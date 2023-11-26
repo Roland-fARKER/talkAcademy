@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ConfirmationService, MessageService } from 'primeng/api';
-import { CursosService } from '../services/curso.service';
+import { CursosService } from 'src/app/services/curso.service'; 
 
 @Component({
   selector: 'app-cursos',

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { EstudiantesService } from '../services/estudiantes.service';
+import { EstudiantesService } from 'src/app/services/estudiantes.service';
 import { ConfirmationService, MessageService } from 'primeng/api';
 
 @Component({

@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-import { MatriculaService } from '../services/matricula.service';
+import { MatriculaService } from '../../../services/matricula.service';
 import { ConfirmationService, MessageService } from 'primeng/api';
-import { CursosService } from '../services/curso.service';
-import { EstudiantesService } from '../services/estudiantes.service';
+import { CursosService } from '../../../services/curso.service';
+import { EstudiantesService } from '../../../services/estudiantes.service';
 
 @Component({
   selector: 'app-matriculas',

@@ -4,9 +4,9 @@ import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { EstudiantesComponent } from './estudiantes/estudiantes.component';
-import { CursosComponent } from './cursos/cursos.component';
-import { MatriculasComponent } from './matriculas/matriculas.component'; 
+import { EstudiantesComponent } from './View/moduloestudiantes/estudiantes/estudiantes.component';
+import { CursosComponent } from './View/modulocursos/componentecursos/cursos.component';
+import { MatriculasComponent } from './View/modulomatricula/matriculas/matriculas.component'; 
 
 
 const routes: Routes = [
